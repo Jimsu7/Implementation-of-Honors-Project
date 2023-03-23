@@ -1,0 +1,7 @@
+//Hamiltonian Path
+MATCH P = (n)-[*]->(n2) // find all paths from n to n2
+WITH Nodes(P) AS PathNodes
+MATCH (n)
+WITH collect(n) AS allnodes, PathNodes
+WHERE ALL(x IN allnodes WHERE x IN PathNodes) AND size(allnodes) = size(PathNodes) //every node must appear in P and size should be equal
+RETURN PathNodes LIMIT 1

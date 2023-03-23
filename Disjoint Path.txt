@@ -1,0 +1,5 @@
+//Disjoint path
+MATCH p1 = (n)-[r1*]->(n2)
+MATCH p2 = (n)-[r2*]->(n2)
+WHERE none(r IN relationships(p1) WHERE r IN relationships(p2)) AND id(r1[0]) < id(r2[0])
+RETURN count(*)

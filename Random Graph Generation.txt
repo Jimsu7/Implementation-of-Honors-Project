@@ -1,0 +1,11 @@
+UNWIND range(1,10) as x // 10 is an example number of node parameter
+Merge (n {id: x});
+//connection
+MATCH (n)
+WITH collect(n) AS nodes
+UNWIND nodes AS n1
+UNWIND nodes AS n2
+WITH n1, n2
+WHERE n1 <> n2 AND rand() < 0.5 // 0.5 is an example of degree parameter to connect n1 to n2
+MERGE (n1) -[:relate]-> (n2)
+return n1,n2
