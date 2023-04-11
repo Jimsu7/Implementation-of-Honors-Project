@@ -1,6 +1,6 @@
 # Implementation-of-Honors-Project
 
-The implementation of the disjoint path algorithm is in "Disjoint Path.txt", and the following is a copy of it. 
+The implementation of random graph generation is in "Random Graph Generation.txt", and the following is a copy of it. 
 ```
 UNWIND range(1,10) as x // 10 is an example number of node parameter
 Merge (n {id: x});
@@ -26,7 +26,7 @@ WHERE ALL(x IN allnodes WHERE x IN PathNodes) AND size(allnodes) = size(PathNode
 RETURN PathNodes LIMIT 1
 ```
 
-The implementation of random graph generation is in "Random Graph Generation.txt", and the following is a copy of it. 
+The implementation of the disjoint path algorithm is in "Disjoint Path.txt", and the following is a copy of it. 
 ```
 //Disjoint path
 MATCH p1 = (n)-[r1*]->(n2)
