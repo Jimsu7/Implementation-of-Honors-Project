@@ -18,11 +18,11 @@ return n1,n2
 The implementation of Hamiltonian path algorithm is in "Hamiltonian Path.txt", and the following is a copy of it. 
 ```
 //Hamiltonian Path
-MATCH P = (n)-[*]->(n2) // find all paths from n to n2
+MATCH P = (n)-[*]->(n2)
 WITH Nodes(P) AS PathNodes
 MATCH (n)
 WITH collect(n) AS allnodes, PathNodes
-WHERE ALL(x IN allnodes WHERE x IN PathNodes) AND size(allnodes) = size(PathNodes) //every node must appear in P and size should be equal
+WHERE ALL(x IN allnodes WHERE x IN PathNodes) AND size(allnodes) = size(PathNodes)
 RETURN PathNodes LIMIT 1
 ```
 
